@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/CarDealerShip</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <mapping resource="com/company/CarSupplierEntity.hbm.xml"/>
+        <mapping class="com.company.CarSupplierEntity"/>
+        <mapping class="com.company.CarsEntity"/>
+        <mapping resource="com/company/CarsEntity.hbm.xml"/>
+        <mapping class="com.company.ClientsEntity"/>
+        <mapping resource="com/company/ClientsEntity.hbm.xml"/>
+        <mapping class="com.company.EmployeersEntity"/>
+        <mapping resource="com/company/EmployeersEntity.hbm.xml"/>
+        <mapping class="com.company.EnginetypesEntity"/>
+        <mapping resource="com/company/EnginetypesEntity.hbm.xml"/>
+        <mapping resource="com/company/SalesEntity.hbm.xml"/>
+        <mapping class="com.company.SalesEntity"/>
+        <mapping resource="com/company/SuppliersEntity.hbm.xml"/>
+        <mapping class="com.company.SuppliersEntity"/>
+        <mapping class="com.company.TransmissiontypesEntity"/>
+        <mapping resource="com/company/TransmissiontypesEntity.hbm.xml"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>
