@@ -4,7 +4,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "transmissiontypes", schema = "cardealership")
-public class TransmissiontypesEntity {
+public class TransmissiontypesEntity
+{
     private int id;
     private String nameTransmission;
     private Integer numberOfGears;
@@ -40,7 +41,8 @@ public class TransmissiontypesEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -56,10 +58,16 @@ public class TransmissiontypesEntity {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int result = id;
         result = 31 * result + (nameTransmission != null ? nameTransmission.hashCode() : 0);
         result = 31 * result + (numberOfGears != null ? numberOfGears.hashCode() : 0);
         return result;
+    }
+    @Override
+    public String toString()
+    {
+        return "TransmissionType - {id = " + id + ", nameTransmission = " + nameTransmission + ", numberOfGears" + numberOfGears + "}";
     }
 }

@@ -99,4 +99,9 @@ public class EmployeersEntity {
         result = 31 * result + (position != null ? position.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Employeer {id = " + id + ", Full name = " + firstName + " " + secondName + " " + patronymic + ", Phone number = " + phoneNumber + "}";
+    }
 }

@@ -5,7 +5,8 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "sales", schema = "cardealership")
-public class SalesEntity {
+public class SalesEntity
+{
     private int id;
     private Date dateSale;
     private ClientsEntity clientsByIdClient;
@@ -33,7 +34,8 @@ public class SalesEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -46,7 +48,8 @@ public class SalesEntity {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int result = id;
         result = 31 * result + (dateSale != null ? dateSale.hashCode() : 0);
         return result;
@@ -78,7 +81,14 @@ public class SalesEntity {
         return employeersByIdEmployee;
     }
 
-    public void setEmployeersByIdEmployee(EmployeersEntity employeersByIdEmployee) {
+    public void setEmployeersByIdEmployee(EmployeersEntity employeersByIdEmployee)
+    {
         this.employeersByIdEmployee = employeersByIdEmployee;
+    }
+    @Override
+    public String toString()
+    {
+        return "Sale - {id = " + id + ", date = " + dateSale + ", IdClient = " + clientsByIdClient.getId() + ", IdCar" +
+                carsByIdCar.getId() + ", IdEmployeer = " + employeersByIdEmployee.getId() + "}";
     }
 }

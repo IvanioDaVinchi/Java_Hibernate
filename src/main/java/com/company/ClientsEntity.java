@@ -86,4 +86,8 @@ public class ClientsEntity {
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
         return result;
     }
+    @Override
+    public String toString() {
+        return "Client {id = " + id + ", Full name = " + firstName + " " + secondName + " " + patronymic + ", Phone number = " + phoneNumber + "}";
+    }
 }

@@ -3,8 +3,9 @@ package com.company;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "cars", schema = "cardealership", catalog = "")
-public class CarsEntity {
+@Table(name = "cars", schema = "cardealership")
+public class CarsEntity
+{
     private int id;
     private String carBrand;
     private String carModel;
@@ -84,7 +85,8 @@ public class CarsEntity {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
@@ -102,7 +104,8 @@ public class CarsEntity {
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int result = id;
         result = 31 * result + (carBrand != null ? carBrand.hashCode() : 0);
         result = 31 * result + (carModel != null ? carModel.hashCode() : 0);
@@ -111,5 +114,11 @@ public class CarsEntity {
         result = 31 * result + (carColor != null ? carColor.hashCode() : 0);
         result = 31 * result + (price != null ? price.hashCode() : 0);
         return result;
+    }
+    @Override
+    public String toString()
+    {
+        return "Car {id = " + String.valueOf(id) + ", brand = "+ carBrand + ", model = " + carModel +
+                "Speed = " + speed + ", racing = " + racing + ", carColor =  " + carColor + ", price = " + price + "}";
     }
 }
