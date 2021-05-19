@@ -13,6 +13,8 @@ public class CarsEntity
     private Double racing;
     private String carColor;
     private Integer price;
+    private EnginetypesEntity engineTypeByIdEngine;
+    private TransmissiontypesEntity transmissiontypesEntityByIdTransmission;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -120,5 +122,23 @@ public class CarsEntity
     {
         return "Car {id = " + String.valueOf(id) + ", brand = "+ carBrand + ", model = " + carModel +
                 "Speed = " + speed + ", racing = " + racing + ", carColor =  " + carColor + ", price = " + price + "}";
+    }
+    @ManyToOne
+    @JoinColumn(name = "EngineType", referencedColumnName = "ID")
+    public EnginetypesEntity getEngineTypeByIdEngine() {
+        return engineTypeByIdEngine;
+    }
+
+    public void setEngineTypeByIdEngine(EnginetypesEntity engineTypeByIdEngine) { this.engineTypeByIdEngine = engineTypeByIdEngine; }
+
+    @ManyToOne
+    @JoinColumn(name = "TransmissionType", referencedColumnName = "ID")
+    public TransmissiontypesEntity getTransmissionTypeByIdTransmission() {
+        return transmissiontypesEntityByIdTransmission;
+    }
+
+    public void setTransmissionTypeByIdTransmission(TransmissiontypesEntity transmissiontypesEntityByIdTransmission)
+    {
+        this.transmissiontypesEntityByIdTransmission = transmissiontypesEntityByIdTransmission;
     }
 }
