@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class EmployeersDao
+public class EmployeesDao
 {
     public List<EmployeersEntity> GetListEmployeers()
     {

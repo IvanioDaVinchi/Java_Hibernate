@@ -77,8 +77,61 @@ public class InsertHandler
         System.out.println("Введите имя клиента");
         String sName = in.next();
         System.out.println("Введите отчество клиента");
-        Double patronymic = in.nextDouble();
+        String patronymic = in.next();
         System.out.println("Введите телефон клиента");
-        Double phoneNumber = in.nextDouble();
+        String phoneNumber = in.next();
+        List<ClientsEntity> listClients = clientsDao.GetListClients();
+        ClientsEntity client = new ClientsEntity();
+        client.setId(listClients.size() + 1);
+        client.setFirstName(fName);
+        client.setSecondName(sName);
+        client.setPatronymic(patronymic);
+        client.setPhoneNumber(phoneNumber);
+        clientsDao.Insert(client);
+    }
+    public void InsertInSuppliers()
+    {
+        SuppliersDao suppliersDao = new SuppliersDao();
+        SuppliersEntity supplier = new SuppliersEntity();
+        System.out.println("Введите наименование нового поставщика");
+        String nameSupplier = in.next();
+        List<SuppliersEntity> listSuppliers = suppliersDao.GetListSuppliers();
+        supplier.setId(listSuppliers.size() + 1);
+        supplier.setNameSupplier(nameSupplier);
+        suppliersDao.Insert(supplier);
+    }
+    public void InsertInEmployees()
+    {
+        EmployeesDao employeesDao = new EmployeesDao();
+        System.out.println("Введите фамилию работника");
+        String fName = in.next();
+        System.out.println("Введите имя работника");
+        String sName = in.next();
+        System.out.println("Введите отчество работника");
+        String patronymic = in.next();
+        System.out.println("Введите телефон работника");
+        String phoneNumber = in.next();
+        System.out.println("Введите должность работника");
+        String position = in.next();
+        List<EmployeersEntity> listEployees = employeesDao.GetListEmployeers();
+        EmployeersEntity employee = new EmployeersEntity();
+        employee.setId(listEployees.size() + 1);
+        employee.setFirstName(fName);
+        employee.setSecondName(sName);
+        employee.setPatronymic(patronymic);
+        employee.setPhoneNumber(phoneNumber);
+        employee.setPosition(position);
+        employeesDao.Insert(employee);
+    }
+    public void InsertInEngineTypes()
+    {
+        System.out.println("Введите ниаименование двигателя");
+        String nameEngine = in.next();
+        System.out.println("Введите объем двигателя");
+        String capacity = in.next();
+        System.out.println("Введите мощность двигателя");
+        String power = in.next();
+        EngineTypesDao engineDao = new EngineTypesDao();
+
     }
 }

@@ -34,7 +34,7 @@ public class OutTable
     }
     public void PrintEmployeersTable()
     {
-        EmployeersDao employeersDao = new EmployeersDao();
+        EmployeesDao employeersDao = new EmployeesDao();
         List<EmployeersEntity> employeersList = employeersDao.GetListEmployeers();
         for (EmployeersEntity employeer : employeersList)
         {
