@@ -95,51 +95,49 @@ public class MenuHandler
     }
     public void SwitchOnInsertInTables(int sw)
     {
+        InsertHandler insertHandler = new InsertHandler();
         switch (sw)
         {
-            switch (sw)
+            case 1:
             {
-                case 1:
-                {
+                insertHandler.InsertInCars();
+                break;
+            }
+            case 2:
+            {
+                insertHandler.InsertInClient();
+                break;
+            }
+            case 3:
+            {
+                insertHandler.InsertInEngineTypes();
+                break;
+            }
+            case 4:
+            {
+                insertHandler.InsertInTransmissionType();
+                break;
+            }
+            case 5:
+            {
+                insertHandler.InsertInEmployees();
+                break;
+            }
+            case 6:
+            {
+                insertHandler.InsertInSuppliers();
+                break;
+            }
+            case 7:
+            {
 
-                    break;
-                }
-                case 2:
-                {
-
-                    break;
-                }
-                case 3:
-                {
-
-                    break;
-                }
-                case 4:
-                {
-
-                    break;
-                }
-                case 5:
-                {
-
-                    break;
-                }
-                case 6:
-                {
-
-                    break;
-                }
-                case 7:
-                {
-
-                    break;
-                }
-                case 8:
-                {
-
-                    break;
-                }
+                break;
+            }
+            case 8:
+            {
+                insertHandler.InsertInCarSupplier();
+                break;
+            }
         }
     }
-
 }

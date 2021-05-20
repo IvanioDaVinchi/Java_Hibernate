@@ -2,7 +2,6 @@ package com.company.Handlers;
 
 import com.company.*;
 import com.company.dao.*;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -128,10 +127,34 @@ public class InsertHandler
         System.out.println("Введите ниаименование двигателя");
         String nameEngine = in.next();
         System.out.println("Введите объем двигателя");
-        String capacity = in.next();
+        Double capacity = in.nextDouble();
         System.out.println("Введите мощность двигателя");
-        String power = in.next();
+        int power = in.nextInt();
         EngineTypesDao engineDao = new EngineTypesDao();
+        EnginetypesEntity engineType = new EnginetypesEntity();
+        List<EnginetypesEntity> listEngines = engineDao.GetListEngines();
+        engineType.setId(listEngines.size() + 1);
+        engineType.setNameEngine(nameEngine);
+        engineType.setEngineCapacity(capacity);
+        engineType.setEnginePower(power);
+        engineDao.Insert(engineType);
+    }
+    public void InsertInTransmissionType()
+    {
+        System.out.println("Введите наименование трансимссии");
+        String nameT = in.next();
+        System.out.println("Введите количство передач");
+        int countGears = in.nextInt();
+        TransmissionTypesDao transmissionTypesDao = new TransmissionTypesDao();
+        TransmissiontypesEntity transmission = new TransmissiontypesEntity();
+        List<TransmissiontypesEntity> listTransmission = transmissionTypesDao.GetListTransmissions();
+        transmission.setId(listTransmission.size() + 1);
+        transmission.setNameTransmission(nameT);
+        transmission.setNumberOfGears(countGears);
+        transmissionTypesDao.Insert(transmission);
+    }
+    public void InsertInSales()
+    {
 
     }
 }
