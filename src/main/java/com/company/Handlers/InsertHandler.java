@@ -2,6 +2,10 @@ package com.company.Handlers;
 
 import com.company.*;
 import com.company.dao.*;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,14 +30,12 @@ public class InsertHandler
         String color = in.next();
         System.out.println("Введите цену авто");
         int price = in.nextInt();
-        EnginetypesEntity engine = new EnginetypesEntity();
         EngineTypesDao engineDao = new EngineTypesDao();
         List<EnginetypesEntity> listEngines = engineDao.GetListEngines();
-        engine = listEngines.get(engineType);
-        TransmissiontypesEntity transmission = new TransmissiontypesEntity();
+        EnginetypesEntity engine = listEngines.get(engineType);
         TransmissionTypesDao transmissionDao = new TransmissionTypesDao();
         List<TransmissiontypesEntity> listTransmisson = transmissionDao.GetListTransmissions();
-        transmission = listTransmisson.get(transmissionType);
+        TransmissiontypesEntity transmission = listTransmisson.get(transmissionType);
         CarsEntity car = new CarsEntity();
         car.setCarBrand(carBrand);
         car.setCarModel(carModel);
@@ -153,8 +155,34 @@ public class InsertHandler
         transmission.setNumberOfGears(countGears);
         transmissionTypesDao.Insert(transmission);
     }
-    public void InsertInSales()
+    public void InsertInSales() throws ParseException
     {
-
+        SalesDao salesDao = new SalesDao();
+        System.out.println("Введите id клиента");
+        int idClient = in.nextInt();
+        System.out.println("Введите id авто");
+        int idCar = in.nextInt();
+        System.out.println("Введите id сотрудника");
+        int idEmployee = in.nextInt();
+        System.out.println("Введите дату продажи");
+        String date = in.next();
+        ClientsDao clientsDao = new ClientsDao();
+        CarsDao carsDao = new CarsDao();
+        EmployeesDao employeesDao = new EmployeesDao();
+        List<ClientsEntity> listClients = clientsDao.GetListClients();
+        List<CarsEntity> listCars = carsDao.GetListCars();
+        List<EmployeersEntity> listEmployee = employeesDao.GetListEmployeers();
+        ClientsEntity client = listClients.get(idClient);
+        CarsEntity car = listCars.get(idCar);
+        EmployeersEntity employee = listEmployee.get(idEmployee);
+        SalesEntity sale = new SalesEntity();
+        List<SalesEntity> listSales = salesDao.GetListSales();
+        sale.setId(listSales.size() + 1);
+        sale.setClientsByIdClient(client);
+        sale.setCarsByIdCar(car);
+        sale.setEmployeersByIdEmployee(employee);
+        Date _date = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        sale.setDateSale((java.sql.Date) _date);
+        salesDao.Insert(sale);
     }
 }

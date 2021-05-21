@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SalesDao
 {
-    public List<SalesEntity> GetListCars()
+    public List<SalesEntity> GetListSales()
     {
         Session session = HibernateSessionFactoryUtil.getSession();
         return  (List<SalesEntity>) session.getSessionFactory().openSession().createQuery("From SalesEntity ").list();
