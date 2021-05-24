@@ -13,9 +13,7 @@ import java.util.Map;
 
 public class Main
 {
-
     private static final SessionFactory ourSessionFactory;
-
     static
     {
         try

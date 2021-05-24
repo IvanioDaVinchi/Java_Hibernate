@@ -163,7 +163,8 @@ public class UpdateHandler
         transmission.setNumberOfGears(countGears);
         transmissionTypesDao.Update(transmission);
     }
-    public void UpdateSale() throws ParseException {
+    public void UpdateSale() throws ParseException
+    {
         SalesDao salesDao = new SalesDao();
         System.out.println("Введите id продажи");
         int id = in.nextInt();
