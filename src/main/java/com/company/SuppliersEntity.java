@@ -1,5 +1,4 @@
 package com.company;
-
 import javax.persistence.*;
 
 @Entity
@@ -32,14 +31,17 @@ public class SuppliersEntity
     @Override
     public boolean equals(Object o)
     {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         SuppliersEntity that = (SuppliersEntity) o;
 
-        if (id != that.id) return false;
-        if (nameSupplier != null ? !nameSupplier.equals(that.nameSupplier) : that.nameSupplier != null) return false;
-
+        if (id != that.id)
+            return false;
+        if (nameSupplier != null ? !nameSupplier.equals(that.nameSupplier) : that.nameSupplier != null)
+            return false;
         return true;
     }
 
