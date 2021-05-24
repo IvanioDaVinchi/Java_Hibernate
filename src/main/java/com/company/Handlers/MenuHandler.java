@@ -2,6 +2,7 @@ package com.company.Handlers;
 
 import com.company.OutTable;
 
+import java.text.ParseException;
 import java.util.Scanner;
 
 public class MenuHandler
@@ -26,7 +27,7 @@ public class MenuHandler
         System.out.println("7) Sales");
         System.out.println("8) Car_Supplier");
     }
-    public void SwitchInMenu(int sw)
+    public void SwitchForMenu(int sw) throws ParseException
     {
         switch (sw)
         {
@@ -34,19 +35,33 @@ public class MenuHandler
             {
                 PrintTablesName();
                 int sww = in.nextInt();
-                SwitchTablePrint(sww);
+                SwitchForTablePrint(sww);
                 break;
             }
             case 2:
             {
                 PrintTablesName();
                 int sww = in.nextInt();
-
+                SwitchForInsertInTables(sww);
+                break;
+            }
+            case 3:
+            {
+                PrintTablesName();
+                int sww = in.nextInt();
+                SwitchForDelete(sww);
+                break;
+            }
+            case 4:
+            {
+                PrintTablesName();
+                int sww = in.nextInt();
+                SwitchForUpdate(sww);
                 break;
             }
         }
     }
-    public void SwitchTablePrint(int sw)
+    public void SwitchForTablePrint(int sw)
     {
         OutTable outTable = new OutTable();
         switch (sw)
@@ -93,7 +108,7 @@ public class MenuHandler
             }
         }
     }
-    public void SwitchOnInsertInTables(int sw)
+    public void SwitchForInsertInTables(int sw) throws ParseException
     {
         InsertHandler insertHandler = new InsertHandler();
         switch (sw)
@@ -130,12 +145,107 @@ public class MenuHandler
             }
             case 7:
             {
-
+                insertHandler.InsertInSales();
                 break;
             }
             case 8:
             {
                 insertHandler.InsertInCarSupplier();
+                break;
+            }
+        }
+    }
+    public void SwitchForUpdate(int sw) throws ParseException
+    {
+        UpdateHandler updateHandler = new UpdateHandler();
+        switch (sw)
+        {
+            case 1:
+            {
+                updateHandler.UpdateCars();
+                break;
+            }
+            case 2:
+            {
+                updateHandler.UpdateClients();
+                break;
+            }
+            case 3:
+            {
+                updateHandler.UpdateEngineType();
+                break;
+            }
+            case 4:
+            {
+                updateHandler.UpdateTransmissionType();
+                break;
+            }
+            case 5:
+            {
+                updateHandler.UpdateEmplooyee();
+                break;
+            }
+            case 6:
+            {
+                updateHandler.UpdateSupplier();
+                break;
+            }
+            case 7:
+            {
+                updateHandler.UpdateSale();
+                break;
+            }
+            case 8:
+            {
+                updateHandler.UpdateCarsSupplier();
+                break;
+            }
+        }
+    }
+    public void SwitchForDelete(int sw)
+    {
+        DeleteHandler deleteHandler = new DeleteHandler();
+        UpdateHandler updateHandler = new UpdateHandler();
+        switch (sw)
+        {
+            case 1:
+            {
+                deleteHandler.DeleteFromCars();
+                break;
+            }
+            case 2:
+            {
+                deleteHandler.DeleteFromClient();
+                break;
+            }
+            case 3:
+            {
+                deleteHandler.DeleteFromEngineTypes();
+                break;
+            }
+            case 4:
+            {
+                deleteHandler.DeleteFromTransmissionTypes();
+                break;
+            }
+            case 5:
+            {
+                deleteHandler.DeleteFromEmployee();
+                break;
+            }
+            case 6:
+            {
+                deleteHandler.DeleteFromSupplier();
+                break;
+            }
+            case 7:
+            {
+                deleteHandler.DeleteFromSales();
+                break;
+            }
+            case 8:
+            {
+                deleteHandler.DeleteFromCarSuppliers();
                 break;
             }
         }

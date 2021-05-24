@@ -34,10 +34,10 @@ public class UpdateHandler
         int price = in.nextInt();
         EngineTypesDao engineDao = new EngineTypesDao();
         List<EnginetypesEntity> listEngines = engineDao.GetListEngines();
-        EnginetypesEntity engine = listEngines.get(engineType);
+        EnginetypesEntity engine = listEngines.get(engineType - 1);
         TransmissionTypesDao transmissionDao = new TransmissionTypesDao();
         List<TransmissiontypesEntity> listTransmisson = transmissionDao.GetListTransmissions();
-        TransmissiontypesEntity transmission = listTransmisson.get(transmissionType);
+        TransmissiontypesEntity transmission = listTransmisson.get(transmissionType - 1);
         CarsEntity car = new CarsEntity();
         CarsDao carDao = new CarsDao();
         car.setId(id);
@@ -61,10 +61,10 @@ public class UpdateHandler
         int idSupplier = in.nextInt();
         CarsDao carsDao = new CarsDao();
         List<CarsEntity> listCars = carsDao.GetListCars();
-        CarsEntity car = listCars.get(idCar);
+        CarsEntity car = listCars.get(idCar - 1);
         SuppliersDao suppliersDao = new SuppliersDao();
         List<SuppliersEntity> listSuppliers = suppliersDao.GetListSuppliers();
-        SuppliersEntity supplier = listSuppliers.get(idSupplier);
+        SuppliersEntity supplier = listSuppliers.get(idSupplier - 1);
         CarSupplierEntity carSupplier = new CarSupplierEntity();
         CarsSupplerDao carsSupplerDao = new CarsSupplerDao();
         List<CarSupplierEntity> carSupplierList = carsSupplerDao.GetListCarsSupplers();
@@ -181,9 +181,9 @@ public class UpdateHandler
         List<ClientsEntity> listClients = clientsDao.GetListClients();
         List<CarsEntity> listCars = carsDao.GetListCars();
         List<EmployeersEntity> listEmployee = employeesDao.GetListEmployeers();
-        ClientsEntity client = listClients.get(idClient);
-        CarsEntity car = listCars.get(idCar);
-        EmployeersEntity employee = listEmployee.get(idEmployee);
+        ClientsEntity client = listClients.get(idClient - 1);
+        CarsEntity car = listCars.get(idCar - 1);
+        EmployeersEntity employee = listEmployee.get(idEmployee - 1);
         SalesEntity sale = new SalesEntity();
         sale.setId(id);
         sale.setClientsByIdClient(client);

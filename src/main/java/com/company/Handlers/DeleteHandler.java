@@ -15,7 +15,7 @@ public class DeleteHandler
         int idCar = in.nextInt();
         CarsDao carsDao = new CarsDao();
         List<CarsEntity> listCars = carsDao.GetListCars();
-        CarsEntity car = listCars.get(idCar);
+        CarsEntity car = listCars.get(idCar - 1);
         carsDao.Delete(car);
     }
     public void DeleteFromClient()
@@ -24,7 +24,7 @@ public class DeleteHandler
         int idClient = in.nextInt();
         ClientsDao clientsDao = new ClientsDao();
         List<ClientsEntity> listClients = clientsDao.GetListClients();
-        ClientsEntity client = listClients.get(idClient);
+        ClientsEntity client = listClients.get(idClient - 1);
         clientsDao.Delete(client);
     }
     public void DeleteFromCarSuppliers()
@@ -33,7 +33,7 @@ public class DeleteHandler
         int id = in.nextInt();
         CarsSupplerDao carsSupplerDao = new CarsSupplerDao();
         List<CarSupplierEntity> listCarSupplies = carsSupplerDao.GetListCarsSupplers();
-        CarSupplierEntity carsupplier = listCarSupplies.get(id);
+        CarSupplierEntity carsupplier = listCarSupplies.get(id - 1);
         carsSupplerDao.Delete(carsupplier);
     }
     public void DeleteFromSupplier()
@@ -42,7 +42,7 @@ public class DeleteHandler
         int idSupplier = in.nextInt();
         SuppliersDao suppliersDao = new SuppliersDao();
         List<SuppliersEntity> listSuppliers = suppliersDao.GetListSuppliers();
-        SuppliersEntity supplier = listSuppliers.get(idSupplier);
+        SuppliersEntity supplier = listSuppliers.get(idSupplier - 1);
         suppliersDao.Delete(supplier);
     }
     public void DeleteFromEmployee()
@@ -51,7 +51,7 @@ public class DeleteHandler
         int idEmploee = in.nextInt();
         EmployeesDao employeesDao = new EmployeesDao();
         List<EmployeersEntity> listEmployees = employeesDao.GetListEmployeers();
-        EmployeersEntity employee = listEmployees.get(idEmploee);
+        EmployeersEntity employee = listEmployees.get(idEmploee - 1);
         employeesDao.Delete(employee);
     }
     public void DeleteFromEngineTypes()
@@ -60,7 +60,7 @@ public class DeleteHandler
         int idEngine = in.nextInt();
         EngineTypesDao engineTypesDao = new EngineTypesDao();
         List<EnginetypesEntity> listEngineTypes = engineTypesDao.GetListEngines();
-        EnginetypesEntity engine = listEngineTypes.get(idEngine);
+        EnginetypesEntity engine = listEngineTypes.get(idEngine - 1);
         engineTypesDao.Delete(engine);
     }
     public void DeleteFromTransmissionTypes()
@@ -69,7 +69,7 @@ public class DeleteHandler
         int id = in.nextInt();
         TransmissionTypesDao transmissionTypesDao = new TransmissionTypesDao();
         List<TransmissiontypesEntity> listTransmissons = transmissionTypesDao.GetListTransmissions();
-        TransmissiontypesEntity transmission = listTransmissons.get(id);
+        TransmissiontypesEntity transmission = listTransmissons.get(id - 1);
         transmissionTypesDao.Delete(transmission);
     }
     public void DeleteFromSales()
@@ -78,7 +78,7 @@ public class DeleteHandler
         int id = in.nextInt();
         SalesDao salesDao = new SalesDao();
         List<SalesEntity> listSales = salesDao.GetListSales();
-        SalesEntity sale = listSales.get(id);
+        SalesEntity sale = listSales.get(id - 1);
         salesDao.Delete(sale);
     }
 }

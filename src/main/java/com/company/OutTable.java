@@ -53,7 +53,7 @@ public class OutTable
     public void PrintSalesTable()
     {
         SalesDao salesDao = new SalesDao();
-        List<SalesEntity> salesEntityList = salesDao.GetListCars();
+        List<SalesEntity> salesEntityList = salesDao.GetListSales();
         for (SalesEntity sale : salesEntityList)
         {
             System.out.println(sale);

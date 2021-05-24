@@ -1,3 +1,4 @@
+import com.company.Handlers.MenuHandler;
 import com.company.OutTable;
 import org.hibernate.HibernateException;
 import org.hibernate.Metamodel;
@@ -34,7 +35,7 @@ public class Main
     {
         return ourSessionFactory.openSession();
     }
-
+    static Scanner in = new Scanner(System.in);
     public static void main(final String[] args) throws Exception
     {
         final Session session = getSession();
@@ -57,9 +58,12 @@ public class Main
         {
             session.close();
         }
+        MenuHandler menuHandler = new MenuHandler();
         while(true)
         {
-
+            menuHandler.PrintMenu();
+            int sw = in.nextInt();
+            menuHandler.SwitchForMenu(sw);
         }
     }
 }
